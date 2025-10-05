@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quote</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .quote {
+      font-size: 48px;
+      max-width: 900px;
+      line-height: 1.4;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="quote" id="quote">Loading...</div>
+  <script>
+    // Get 'text' parameter from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const quoteText = urlParams.get('text') || 'Your quote here';
+    document.getElementById('quote').textContent = decodeURIComponent(quoteText.replace(/\+/g, ' '));
+  </script>
+</body>
+</html>
